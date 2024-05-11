@@ -1,0 +1,106 @@
+<div class="max-w-3xl mx-auto h-fit mt-8 border-2 border-gray-400 p-3">
+  <h1 class="text-4xl">Create Your Course!!</h1>
+
+  <form [formGroup]="createCourseForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="course">
+      <label for="">Title</label>
+      <input
+        class="border-2 border-gray-400"
+        type="text"
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        formControlName="title"
+      />
+      <label class="block mb-1" for="">Subtitle</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="subtitle"
+      />
+      <label for="">Description</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="description"
+      />
+      <label for="">Skill level</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="skillLevel"
+      />
+      <label for="">Category</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="category"
+      />
+      <label for="">Language</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="language"
+      />
+      <label for="">Duration</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="duration"
+      />
+      <label for="">Price</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="number"
+        formControlName="price"
+      />
+      <label for="">Popularity</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="popularity"
+      />
+    </div>
+    <div formGroupName="section">
+      <label for="">Section Title</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="title"
+      />
+    </div>
+    <div formGroupName="lection" class="mb-5">
+      <label for="">Section Title</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="title"
+      />
+      <label for="">Video Title</label>
+      <input
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="video"
+      />
+    </div>
+    <a
+      class="cursor-pointer p-3 border-2 border-gray-400"
+      (click)="onAddSection()"
+      >Add Section</a
+    >
+    <a
+      class="cursor-pointer p-3 border-2 border-gray-400"
+      (click)="onAddLection()"
+      >Add lection</a
+    >
+    <br />
+    <div class="mt-5">
+      <button
+        class="cursor-pointer p-1 border-2 border-gray-400 mt-15 disabled:opacity-50 disabled:cursor-not-allowed"
+        [disabled]="!createCourseForm.valid"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<!-- <button (click)="onSubmit()">Klik</button> -->

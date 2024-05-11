@@ -1,0 +1,37 @@
+<header
+  class="flex justify-between h-14 w-full items-center border-b border-gray-400"
+>
+  <img
+    routerLink=""
+    src="../assets/images/logonoback.png"
+    class="h-32 mt-3 cursor-pointer"
+    alt=""
+  />
+
+  <ul class="flex text-2xl space-x-12 font-light mr-36">
+    <li
+      *ngIf="role == 'admin'"
+      routerLink="/create-course"
+      class="cursor-pointer"
+    >
+      Create Course
+    </li>
+    <li *ngIf="flag === -1" routerLink="/login" class="cursor-pointer">
+      Login
+    </li>
+    <li *ngIf="flag === -1" routerLink="/signup" class="cursor-pointer">
+      Signup
+    </li>
+    <li *ngIf="flag != -1" (click)="onLogout()" class="cursor-pointer">
+      Logout
+    </li>
+  </ul>
+  <h1 *ngIf="flag != -1" class="text-2xl">Welcome: {{ user.userName }}</h1>
+  <button
+    *ngIf="flag != -1"
+    routerLink="/courses"
+    class="bg-zinc-800 text-white p-3 w-36 rounded-2xl mr-10"
+  >
+    See Courses!!
+  </button>
+</header>

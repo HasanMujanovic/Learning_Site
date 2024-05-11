@@ -1,1 +1,30 @@
-<p>courses works!</p>
+<main class="h-full gap-20 mx-auto">
+  <!-- <div class="h-screen border-r border-gray-400 w-2/12">
+      <ul class="text-2xl ml-7 font-light">
+        <li>Lista1</li>
+        <li>Lista2</li>
+        <li>Lista3</li>
+        <li>Lista4</li>
+      </ul>
+    </div> -->
+  <div class="flex justify-center">
+    <div class="grid grid-cols-4 gap-4">
+      <div
+        *ngFor="let course of courses"
+        class="bg-amber-300 w-72 h-80 grid justify-center rounded-lg"
+      >
+        <img src="../assets/images/depertment-1.png" class="w-80 mt-5" alt="" />
+        <h3 class="text-2xl">{{ course.title }}</h3>
+        <p>
+          {{ course.description }}
+        </p>
+        <button
+          routerLink="/course-details/{{ course.id }}"
+          class="mr-auto text-gray-950 border-2 bg-slate-300 border-r-gray-400 p-1"
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,66 @@
+<div class="max-w-md mx-auto mt-8 border-2 border-gray-400 p-3">
+  <p class="mb-2">Login as:</p>
+  <p
+    class="mb-4 cursor-pointer"
+    [ngClass]="{ 'text-yellow-500': role === 'admin' }"
+    (click)="setRoleAdmin()"
+  >
+    Instructor
+  </p>
+  <p
+    class="mb-4 cursor-pointer"
+    [ngClass]="{ 'text-yellow-500': role === 'user' }"
+    (click)="setRoleUser()"
+  >
+    User
+  </p>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4" formGroupName="signup">
+      <label class="block mb-1" for="firstName">First Name</label>
+      <input
+        id="firstName"
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="userName"
+      />
+    </div>
+
+    <div class="mb-4" formGroupName="signup">
+      <label class="block mb-1" for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="text"
+        formControlName="lastName"
+      />
+    </div>
+
+    <div class="mb-4" formGroupName="signup">
+      <label class="block mb-1" for="email">Email</label>
+      <input
+        id="email"
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="email"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="mb-4" formGroupName="signup">
+      <label class="block mb-1" for="password">Password</label>
+      <input
+        id="password"
+        class="border-2 border-gray-400 px-4 py-2 w-full rounded-lg focus:outline-none focus:border-blue-500"
+        type="password"
+        formControlName="password"
+      />
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="!signupForm.valid"
+      class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Signup
+    </button>
+  </form>
+</div>
