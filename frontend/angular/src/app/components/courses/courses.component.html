@@ -18,12 +18,20 @@
         <p>
           {{ course.description }}
         </p>
-        <button
-          routerLink="/course-details/{{ course.id }}"
-          class="mr-auto text-gray-950 border-2 bg-slate-300 border-r-gray-400 p-1"
-        >
-          Learn More
-        </button>
+        <div>
+          <button
+            routerLink="/course-details/{{ course.id }}"
+            class="mr-auto text-gray-950 border-2 bg-slate-300 border-r-gray-400 p-1"
+          >
+            Learn More
+          </button>
+          <button
+            (click)="onAddFavorite(course.id)"
+            class="mr-auto text-gray-950 border-2 bg-slate-300 border-r-gray-400 p-1"
+          >
+            Add to favorites
+          </button>
+        </div>
       </div>
     </div>
   </div>

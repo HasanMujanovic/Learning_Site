@@ -14,8 +14,13 @@ import { authGuardGuard } from './guards/auth-guard.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
+  {
+    path: 'favorites',
+    component: FavoritesComponent,
+  },
   {
     path: 'signup',
     component: SignupComponent,
@@ -54,6 +59,7 @@ const routes: Routes = [
     MainComponent,
     SearchComponent,
     SignupComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

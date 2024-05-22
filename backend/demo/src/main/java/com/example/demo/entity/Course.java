@@ -54,6 +54,27 @@ public class Course {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+    })
+    @JoinTable(
+            name = "user_course",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users = new ArrayList<>();
+
+    public void addUser(User user){
+        if (users == null){
+            users = new ArrayList<>();
+        }
+
+        users.add(user);
+    }
+
     public void add(CourseSection item){
         if (item != null){
             if(section == null){

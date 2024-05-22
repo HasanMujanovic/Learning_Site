@@ -36,6 +36,26 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Course> courses = new ArrayList<>();
 
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+    })
+    @JoinTable(
+            name = "user_course",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> favoriteCourses = new ArrayList<>();
+
+    public void addCourse(Course course){
+        if (favoriteCourses == null){
+            favoriteCourses = new ArrayList<>();
+        }
+        favoriteCourses.add(course);
+    }
+
     public void add (Course course){
         if (course != null){
             if (courses == null){
@@ -45,5 +65,6 @@ public class User {
             course.setUser(this);
         }
     }
+
 
 }
